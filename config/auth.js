@@ -3,19 +3,19 @@
 // expose our config directly to our application using module.exports
 module.exports = {
 	'facebookAuth': {
-		'clientID': process.env.FACEBOOK_CONSUMER_KEY || '189849514869492', // your App ID 
-		'clientSecret': process.env.FACEBOOK_CONSUMER_SECRET || 'fce4a5d219289346239642928a1f7c79', // your App Secret 
-		'callbackURL': process.env.FACEBOOK_CALLBACK_URL || 'http://mcsc-authorization-dev.azurewebsites.net/auth/facebook/callback'
+		'clientID': process.env.FACEBOOK_CONSUMER_KEY || '121998868463694', // your App ID 
+		'clientSecret': process.env.FACEBOOK_CONSUMER_SECRET || 'af0a52fc594a460867fd44006e9ac514', // your App Secret 
+		'callbackURL': process.env.FACEBOOK_CALLBACK_URL || 'http://localhost:8080/auth/facebook/callback'
 	},
 	'twitterAuth': {
-		'consumerKey': process.env.TWITTER_CONSUMER_KEY || 'q2JfZwE8BTIHHNruzRqaWubEI',
-		'consumerSecret': process.env.TWITTER_CONSUMER_SECRET || 'FI4nM1BuayKsMBLZ2fA4zicaOkNUvjrhfRgiDYngVQVBtkXRyT',
-		'callbackURL': process.env.TWITTER_CALLBACK_URL || 'http://mcsc-authorization-dev.azurewebsites.net/auth/twitter/callback'
+		'consumerKey': process.env.TWITTER_CONSUMER_KEY || 'UMbbWr48zrAT94aFON1YCXBCO',
+		'consumerSecret': process.env.TWITTER_CONSUMER_SECRET || 'TTWr7kFiE9fpKQci1PCvYoNtXlwLxgmKVH2wTpaE3PapkpMx5X',
+		'callbackURL': process.env.TWITTER_CALLBACK_URL || 'http:/localhost:8080/auth/twitter/callback'
 	},
 	'instagramAuth': {
-		'clientID': process.env.INSTAGRAM_CONSUMER_KEY || 'c63be8b7e41b496597cc6db47ebd55f3',
-		'clientSecret': process.env.INSTAGRAM_CONSUMER_SECRET || '7b8101ca372347c791285f8a6e0bb451',
-		'callbackURL': process.env.INSTAGRAM_CALLBACK_URL || 'http://mcsc-authorization-dev.azurewebsites.net/auth/instagram/callback',
+		'clientID': process.env.INSTAGRAM_CONSUMER_KEY || 'c2a8886806744952b6cccf32d8710bc3',
+		'clientSecret': process.env.INSTAGRAM_CONSUMER_SECRET || '6f67dbd7a9da448a9e413c3f7a04e65c',
+		'callbackURL': process.env.INSTAGRAM_CALLBACK_URL || 'http://localhost:8080/auth/instagram/callback',
 		'registrationCallbackURL': process.env.INSTAGRAM_REGISTRATION_CALLBACK_URL || 'https://mcsc-supporting-api.azurewebsites.net/api/instagram_subscriptions'
 	}
 };

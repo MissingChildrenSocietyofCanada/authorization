@@ -31,10 +31,13 @@ module.exports = function (app, passport) {
 
 	// handle the callback after facebook has authenticated the user
 	app.get('/auth/facebook/callback',
-		passport.authenticate('facebook', {
-			successRedirect: '/profile',
-			failureRedirect: '/'
-		}));
+			//passport.authenticate('facebook', {
+			//successRedirect: '/profile',
+			//failureRedirect: '/'})
+			passport.authenticate('facebook', {	failureRedirect: '/' }), function(req, res) { 
+				res.redirect('/profile'); 
+			}
+		);
 
 	// twitter --------------------------------
 
@@ -43,10 +46,13 @@ module.exports = function (app, passport) {
 
 	// handle the callback after twitter has authenticated the user
 	app.get('/auth/twitter/callback',
-		passport.authenticate('twitter', {
-			successRedirect: '/profile',
-			failureRedirect: '/'
-		}));
+			//passport.authenticate('twitter', {
+			//	successRedirect: '/profile',
+			//	failureRedirect: '/'})
+			passport.authenticate('twitter', {	failureRedirect: '/' }), function(req, res) { 
+				res.redirect('/profile'); 
+			}
+		);
 
 	// instagram ---------------------------------
 
@@ -55,10 +61,13 @@ module.exports = function (app, passport) {
 
 	// the callback after instagram has authenticated the user
 	app.get('/auth/instagram/callback',
-		passport.authenticate('instagram', {
-			successRedirect: '/profile',
-			failureRedirect: '/'
-		}));
+			//passport.authenticate('instagram', {
+			//	successRedirect: '/profile',
+			//	failureRedirect: '/'})
+			passport.authenticate('instagram', { failureRedirect: '/' }), function(req, res) { 
+					res.redirect('/profile'); 
+				}
+		);
 
 	// =============================================================================
 	// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============

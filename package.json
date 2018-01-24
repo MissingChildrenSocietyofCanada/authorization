@@ -13,5 +13,12 @@
     "passport-instagram": "~1.0.0",
     "passport-twitter": "~1.0.2",
     "request": "latest"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }

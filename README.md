@@ -78,3 +78,4 @@ nodemon server.js
 * INSTAGRAM_REGISTRATION_CALLBACK_URL: Registration Call Back URL
 * MONGO_DB: Connection to datastore
 * PORT: Port service runs on; default is 8080
+* APPINSIGHTS_INSTRUMENTATIONKEY: Application Insights Instrumentation Key
