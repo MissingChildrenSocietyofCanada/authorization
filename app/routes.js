@@ -1,4 +1,4 @@
-module.exports = function (app, passport) {
+module.exports = function (app, passport, configAuth) {
 
 	// normal routes ===============================================================
 
@@ -19,6 +19,10 @@ module.exports = function (app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+
+	app.get('/parameters', function (req, res) {
+		res.send(configAuth);
+	})
 
 	// =============================================================================
 	// AUTHENTICATE (FIRST LOGIN) ==================================================
