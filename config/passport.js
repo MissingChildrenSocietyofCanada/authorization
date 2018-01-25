@@ -98,7 +98,8 @@ module.exports = function (passport) {
 
                             newUser.save(function (err) {
                                 if (err)
-                                    throw err;
+                                    return done(err);
+
                                 return done(null, newUser);
                             });
                         }
@@ -130,7 +131,7 @@ module.exports = function (passport) {
 
                     user.save(function (err) {
                         if (err)
-                            throw err;
+                            return done(err);
                         return done(null, user);
                     });
                 }
