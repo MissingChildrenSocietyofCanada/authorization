@@ -12,17 +12,20 @@ var port = process.env.PORT || 8080;
 
 var configDB = require('./config/database.js');
 var configAuth = require('./config/auth.js');
-const appInsights = require("applicationinsights");
+const appInsights = require('applicationinsights');
 
-appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
-    .setAutoDependencyCorrelation(true)
-    .setAutoCollectRequests(true)
-    .setAutoCollectPerformance(true)
-    .setAutoCollectExceptions(true)
-	.setAutoCollectDependencies(true)
-	.setAutoCollectConsole(true, true)
-	.setUseDiskRetryCaching(true)
-    .start();
+if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
+{
+    appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
+        .setAutoDependencyCorrelation(true)
+        .setAutoCollectRequests(true)
+        .setAutoCollectPerformance(true)
+        .setAutoCollectExceptions(true)
+        .setAutoCollectDependencies(true)
+        .setAutoCollectConsole(true, true)
+        .setUseDiskRetryCaching(true)
+        .start();
+}
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database

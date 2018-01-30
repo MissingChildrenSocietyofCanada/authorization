@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
         firstname    : String,
         lastname     : String,
         birthyear    : String,
-        phonenumber  : String,
+        phonenumber  : String
     },
     facebook         : {
         id           : String,
@@ -22,7 +22,7 @@ var userSchema = mongoose.Schema({
         gender       : String,
         birthday     : String,
         hometown     : Object,
-        location     : Object,
+        location     : Object
 
     },
     twitter          : {
@@ -31,13 +31,14 @@ var userSchema = mongoose.Schema({
         displayName  : String,
         username     : String,
         profilepic   : String,
+        hometown     : String
     },
     instagram           : {
         id           : String,
         token        : String,
         displayName  : String,
         username     : String,
-        profilepic   : String,
+        profilepic   : String
     }
 
 });

@@ -3,7 +3,7 @@ module.exports = function (app, passport, configAuth) {
 	// normal routes ===============================================================
 
 	// show the home page (will also have our login links)
-	app.get('/', function (req, res) {
+	app.get('/', isAlreadyLoggedIn, function (req, res) {
 		res.render('index.ejs');
 	});
 
@@ -35,9 +35,6 @@ module.exports = function (app, passport, configAuth) {
 
 	// handle the callback after facebook has authenticated the user
 	app.get('/auth/facebook/callback',
-			//passport.authenticate('facebook', {
-			//successRedirect: '/profile',
-			//failureRedirect: '/'})
 			passport.authenticate('facebook', {	failureRedirect: '/' }), function(req, res) { 
 				res.redirect('/profile'); 
 			}
@@ -50,9 +47,6 @@ module.exports = function (app, passport, configAuth) {
 
 	// handle the callback after twitter has authenticated the user
 	app.get('/auth/twitter/callback',
-			//passport.authenticate('twitter', {
-			//	successRedirect: '/profile',
-			//	failureRedirect: '/'})
 			passport.authenticate('twitter', {	failureRedirect: '/' }), function(req, res) { 
 				res.redirect('/profile'); 
 			}
@@ -65,9 +59,6 @@ module.exports = function (app, passport, configAuth) {
 
 	// the callback after instagram has authenticated the user
 	app.get('/auth/instagram/callback',
-			//passport.authenticate('instagram', {
-			//	successRedirect: '/profile',
-			//	failureRedirect: '/'})
 			passport.authenticate('instagram', { failureRedirect: '/' }), function(req, res) { 
 					res.redirect('/profile'); 
 				}
@@ -153,8 +144,18 @@ module.exports = function (app, passport, configAuth) {
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated())
+	if (req.isAuthenticated()) {
 		return next();
+	}
 
 	res.redirect('/');
+}
+
+function isAlreadyLoggedIn(req, res, next) {
+	if (req.isAuthenticated() && req.user)
+	{
+		res.redirect('/profile');
+	}
+
+	return next();
 }
