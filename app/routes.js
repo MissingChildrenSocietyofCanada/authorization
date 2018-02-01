@@ -35,10 +35,10 @@ module.exports = function (app, passport, configAuth) {
 
 	// handle the callback after facebook has authenticated the user
 	app.get('/auth/facebook/callback',
-			passport.authenticate('facebook', {	failureRedirect: '/' }), function(req, res) { 
-				res.redirect('/profile'); 
-			}
-		);
+		passport.authenticate('facebook', {	failureRedirect: '/' }), function (req, res) {
+			res.redirect('/profile');
+		}
+	);
 
 	// twitter --------------------------------
 
@@ -47,10 +47,10 @@ module.exports = function (app, passport, configAuth) {
 
 	// handle the callback after twitter has authenticated the user
 	app.get('/auth/twitter/callback',
-			passport.authenticate('twitter', {	failureRedirect: '/' }), function(req, res) { 
-				res.redirect('/profile'); 
-			}
-		);
+		passport.authenticate('twitter', {	failureRedirect: '/' }), function (req, res) {
+			res.redirect('/profile');
+		}
+	);
 
 	// instagram ---------------------------------
 
@@ -59,10 +59,10 @@ module.exports = function (app, passport, configAuth) {
 
 	// the callback after instagram has authenticated the user
 	app.get('/auth/instagram/callback',
-			passport.authenticate('instagram', { failureRedirect: '/' }), function(req, res) { 
-					res.redirect('/profile'); 
-				}
-		);
+		passport.authenticate('instagram', { failureRedirect: '/' }), function (req, res) {
+			res.redirect('/profile');
+		}
+	);
 
 	// =============================================================================
 	// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
@@ -117,6 +117,10 @@ module.exports = function (app, passport, configAuth) {
 		var user = req.user;
 		user.facebook.token = undefined;
 		user.save(function (err) {
+			if (err) {
+				throw err;
+			}
+
 			res.redirect('/profile');
 		});
 	});
@@ -126,6 +130,10 @@ module.exports = function (app, passport, configAuth) {
 		var user = req.user;
 		user.twitter.token = undefined;
 		user.save(function (err) {
+			if (err) {
+				throw err;
+			}
+
 			res.redirect('/profile');
 		});
 	});
@@ -135,6 +143,10 @@ module.exports = function (app, passport, configAuth) {
 		var user = req.user;
 		user.instagram.token = undefined;
 		user.save(function (err) {
+			if (err) {
+				throw err;
+			}
+
 			res.redirect('/profile');
 		});
 	});
@@ -143,7 +155,7 @@ module.exports = function (app, passport, configAuth) {
 };
 
 // route middleware to ensure user is logged in
-function isLoggedIn(req, res, next) {
+function isLoggedIn (req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
 	}
@@ -151,9 +163,8 @@ function isLoggedIn(req, res, next) {
 	res.redirect('/');
 }
 
-function isAlreadyLoggedIn(req, res, next) {
-	if (req.isAuthenticated() && req.user)
-	{
+function isAlreadyLoggedIn (req, res, next) {
+	if (req.isAuthenticated() && req.user) {
 		res.redirect('/profile');
 	}
 

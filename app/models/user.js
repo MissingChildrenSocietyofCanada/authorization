@@ -1,45 +1,45 @@
 // load the things we need
 var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+//var bcrypt   = require('bcrypt-nodejs');
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
 
 // TODO: Save when the user was created??? 
-    local            : {
-        firstname    : String,
-        lastname     : String,
-        birthyear    : String,
-        phonenumber  : String
-    },
-    facebook         : {
-        id           : String,
-        token        : String,
-        email        : String,
-        displayName  : String,
-        name         : String,
-        profilepic   : String,
-        gender       : String,
-        birthday     : String,
-        hometown     : Object,
-        location     : Object
+	local: {
+		firstname: String,
+		lastname: String,
+		birthyear: String,
+		phonenumber: String
+	},
+	facebook: {
+		id: String,
+		token: String,
+		email: String,
+		displayName: String,
+		name: String,
+		profilepic: String,
+		gender: String,
+		birthday: String,
+		hometown: Object,
+		location: Object
 
-    },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String,
-        profilepic   : String,
-        hometown     : String
-    },
-    instagram           : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String,
-        profilepic   : String
-    }
+	},
+	twitter: {
+		id: String,
+		token: String,
+		displayName: String,
+		username: String,
+		profilepic: String,
+		hometown: String
+	},
+	instagram: {
+		id: String,
+		token: String,
+		displayName: String,
+		username: String,
+		profilepic: String
+	}
 
 });
 
