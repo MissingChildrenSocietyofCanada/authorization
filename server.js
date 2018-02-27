@@ -27,7 +27,7 @@ if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
 }
 
 // configuration ===============================================================
-mongoose.connect(configDB.url + 'user?ssl=true', { auth: {
+mongoose.connect(configDB.url + 'user?ssl=true&sslverifycertificate=false', { auth: {
 	user: configDB.name,
 	password: configDB.authKey
 } }); // connect to our database
