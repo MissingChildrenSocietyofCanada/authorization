@@ -260,7 +260,7 @@ module.exports = function (passport) {
 
 						var newUser = new User();
 
-						UpdateUserFromInstagram(user, profile, token);
+						UpdateUserFromInstagram(newUser, profile, token);
 
 						newUser.save(function (err) {
 							if (err) {

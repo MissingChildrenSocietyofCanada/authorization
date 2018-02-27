@@ -30,8 +30,15 @@ module.exports = function (app, passport, configAuth) {
 
 	// facebook -------------------------------
 
+	// Scope Notes
+	//  - user_friends will only retrieve the friends that are also registered with the platform
+
+	let facebookScope = ['public_profile', 'email', 'user_about_me', 'user_birthday', 'user_education_history', 'user_friends', 'user_hometown',
+		'user_likes','user_location', 'user_photos', 'user_posts','user_relationship_details','user_relationships', 'user_religion_politics',
+		'user_status','user_tagged_places','user_videos','user_website','user_work_history'];
+
 	// send to facebook to do the authentication
-	app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_birthday', 'user_location', 'user_hometown', 'user_posts'] }));
+	app.get('/auth/facebook', passport.authenticate('facebook', { scope: facebookScope }));
 
 	// handle the callback after facebook has authenticated the user
 	app.get('/auth/facebook/callback',
@@ -71,7 +78,7 @@ module.exports = function (app, passport, configAuth) {
 	// facebook -------------------------------
 
 	// send to facebook to do the authentication
-	app.get('/connect/facebook', passport.authorize('facebook', { scope: ['public_profile', 'email', 'user_birthday', 'user_location', 'user_hometown', 'user_posts'] }));
+	app.get('/connect/facebook', passport.authorize('facebook', { scope: facebookScope }));
 
 	// handle the callback after facebook has authorized the user
 	app.get('/connect/facebook/callback',

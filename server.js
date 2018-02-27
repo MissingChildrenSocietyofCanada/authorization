@@ -27,7 +27,10 @@ if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
 }
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+mongoose.connect(configDB.url + 'user?ssl=true', { auth: {
+	user: configDB.name,
+	password: configDB.authKey
+} }); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
